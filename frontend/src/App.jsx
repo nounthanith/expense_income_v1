@@ -9,6 +9,8 @@ import Transaction from "./pages/transaction/Transaction";
 import Profile from "./pages/profile/Profile";
 import Category from "./pages/category/Category";
 import CreateCategory from "./pages/category/CreateCategory";
+import Page404 from "./pages/Page404";
+import CreateTransaction from "./pages/transaction/CreateTransaction";
 
 function App() {
   return (
@@ -19,6 +21,15 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
+          <Route
+            path="*"
+            element={
+              <Protect>
+                {" "}
+                <Page404 />{" "}
+              </Protect>
+            }
+          />
           <Route
             path="/dashboard"
             element={
@@ -51,6 +62,24 @@ function App() {
               <Protect>
                 {" "}
                 <Category />{" "}
+              </Protect>
+            }
+          />
+          <Route
+            path="/create-category"
+            element={
+              <Protect>
+                {" "}
+                <CreateCategory />{" "}
+              </Protect>
+            }
+          />
+          <Route
+            path="/create-transaction"
+            element={
+              <Protect>
+                {" "}
+                <CreateTransaction />{" "}
               </Protect>
             }
           />
